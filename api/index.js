@@ -8,9 +8,9 @@ const {
   boomErrorHandler
 } = require('./middlewares/error.handler');
 
-
 const app = express();
-const port = 3000;
+
+const { port = 3000 } = process.env;
 
 app.use(express.json());
 
@@ -23,16 +23,16 @@ app.use(cors({
   origin: (origin, callback) => {
     if (whiteList.has(origin))
       return callback(null, true)
-    
+
     callback(new Error('No permitido'))
   }
 }));
 
-app.get('/', (req, res) => {
+app.get('/api/', (req, res) => {
   res.send('Hola mi server en express');
 });
 
-app.get('/nueva-ruta', (req, res) => {
+app.get('/api/nueva-ruta', (req, res) => {
   res.send('Hola, soy una nueva ruta');
 });
 

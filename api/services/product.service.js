@@ -2,7 +2,7 @@
 const { faker } = require('@faker-js/faker');
 // https://hapi.dev/module/boom/     10.0.1
 const boom = require('@hapi/boom');
-const Utils = require('../utils/Utils');
+const Utils = require('../../utils/Utils');
 
 class ProductsService {
 
